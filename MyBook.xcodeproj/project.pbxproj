@@ -12,6 +12,11 @@
 		E07B6D851F451E2F00526048 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E07B6D831F451E2F00526048 /* Main.storyboard */; };
 		E07B6D871F451E2F00526048 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E07B6D861F451E2F00526048 /* Assets.xcassets */; };
 		E07B6D8A1F451E2F00526048 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E07B6D881F451E2F00526048 /* LaunchScreen.storyboard */; };
+		E07B6D921F4522BD00526048 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E07B6D911F4522BD00526048 /* LoginViewController.swift */; };
+		E07B6D941F45500E00526048 /* BookListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E07B6D931F45500E00526048 /* BookListTableViewController.swift */; };
+		E07B6D961F455D0700526048 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = E07B6D951F455D0700526048 /* Book.swift */; };
+		E07B6D981F45635D00526048 /* BookDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E07B6D971F45635D00526048 /* BookDetailViewController.swift */; };
+		E07B6D9A1F45734C00526048 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E07B6D991F45734C00526048 /* WebViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +27,11 @@
 		E07B6D861F451E2F00526048 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E07B6D891F451E2F00526048 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E07B6D8B1F451E2F00526048 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E07B6D911F4522BD00526048 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		E07B6D931F45500E00526048 /* BookListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookListTableViewController.swift; sourceTree = "<group>"; };
+		E07B6D951F455D0700526048 /* Book.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
+		E07B6D971F45635D00526048 /* BookDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookDetailViewController.swift; sourceTree = "<group>"; };
+		E07B6D991F45734C00526048 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +70,11 @@
 				E07B6D861F451E2F00526048 /* Assets.xcassets */,
 				E07B6D881F451E2F00526048 /* LaunchScreen.storyboard */,
 				E07B6D8B1F451E2F00526048 /* Info.plist */,
+				E07B6D911F4522BD00526048 /* LoginViewController.swift */,
+				E07B6D931F45500E00526048 /* BookListTableViewController.swift */,
+				E07B6D951F455D0700526048 /* Book.swift */,
+				E07B6D971F45635D00526048 /* BookDetailViewController.swift */,
+				E07B6D991F45734C00526048 /* WebViewController.swift */,
 			);
 			path = MyBook;
 			sourceTree = "<group>";
@@ -137,7 +152,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E07B6D921F4522BD00526048 /* LoginViewController.swift in Sources */,
 				E07B6D821F451E2F00526048 /* ViewController.swift in Sources */,
+				E07B6D981F45635D00526048 /* BookDetailViewController.swift in Sources */,
+				E07B6D941F45500E00526048 /* BookListTableViewController.swift in Sources */,
+				E07B6D9A1F45734C00526048 /* WebViewController.swift in Sources */,
+				E07B6D961F455D0700526048 /* Book.swift in Sources */,
 				E07B6D801F451E2F00526048 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
