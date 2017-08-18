@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class Book {
+class Book : NSObject, NSCoding{
     
     var title : String
     var writer : String?
@@ -38,7 +38,28 @@ class Book {
         self.url = url
     }
     
+    // File > Instance
+    required init?(coder aDecoder: NSCoder) {
+        self.title = aDecoder.decodeObject(forKey: "title") as! String
+        self.writer = aDecoder.decodeObject(forKey: "writer") as? String
+        self.publisher = aDecoder.decodeObject(forKey: "publisher") as? String
+        self.coverImage = aDecoder.decodeObject(forKey: "coverImage") as? UIImage
+        self.price = aDecoder.decodeObject(forKey: "price") as? Int
+        self.descripter = aDecoder.decodeObject(forKey: "descripter") as? String
+        self.url = aDecoder.decodeObject(forKey: "url") as? String
+        
+    }
     
-    
+    // Instance > File
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(self.title, forKey:"title")
+        aCoder.encode(self.writer, forKey:"writer")
+        aCoder.encode(self.publisher, forKey:"publisher")
+        aCoder.encode(self.coverImage, forKey:"coverImage")
+        aCoder.encode(self.price, forKey:"price")
+        aCoder.encode(self.descripter, forKey:"descripter")
+        aCoder.encode(self.url, forKey:"url")
+        
+    }
     
 }

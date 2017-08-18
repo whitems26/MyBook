@@ -15,6 +15,19 @@ class BookListTableViewController: UITableViewController, AddBookDelegate {
     
     var bookImgs:[String] = ["img1", "img2", "Manchester United", "Chelsea", "Liverpool"]
     
+    func getFilePath(withFileName : String) -> String {
+
+        let dirPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
+        
+        let docDir = dirPath[0] as NSString
+        
+        print(docDir)
+        
+        let filePath = docDir.appendingPathComponent(withFileName)
+        
+        return filePath
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -23,24 +36,40 @@ class BookListTableViewController: UITableViewController, AddBookDelegate {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+ 
+        
+     
+//        
+//        let book1 = Book(title: "원피스", writer: "Eiichiro Oda", publisher: "대원씨아이", coverImage: UIImage(named:"onepiece")!, descripter: "유쾌한 해적들의 신나는 모험 이야기를 그린 만화『원피스』시리즈 제55권. 본 작품은 대해적 시대, 전설의 해적왕 '골드 로저'가 남긴 '원피스'를 찾기 위해 모험을 떠나는 루피와 친구들의 이야기이다. 의지 하나로 모험을 떠나는 루피와 그에 못지 않은 친구들은, 한번 읽기 시작하면 손을 뗄 수 없게 만드는 캐릭터들이다.", price: 4500, url:"http://www.kyobobook.co.kr/product/detailViewKor.laf?ejkGb=KOR&mallGb=KOR&barcode=9791133442188&orderClick=LET&Kc=")
+//        
+//        
+//        let book2 = Book(title: "나루토", writer: "Masashi Kishimoto", publisher: "대원씨아이", coverImage: UIImage(named:"naruto")!, descripter: "닌자를 소재로 한 만화 『나루토』 제11권. '세 번째 시험' 본선을 앞두고 수수께끼의 에로 선인과 수업을 시작한 나루토! 한편 바로 그 시각, 가아라에 승부를 도전한 도스는 눈 깜짝할 사이에 무참히 당하고 만다. 그리고 이를 방관하는 카부토와 모래 마을 상급 닌자 바키! 누구도 상상 못했던 가공할 밀약이 바로 지금 밝혀진다!", price: 4500, url:"http://www.kyobobook.co.kr/product/detailViewKor.laf?ejkGb=KOR&mallGb=KOR&barcode=9788925285061&orderClick=LET&Kc=")
+//    
+//        let book3 = Book(title: "드래곤볼", writer: "Akira Toriyama", publisher: "서울문화사", coverImage: UIImage(named:"dragonball")!, descripter: "Akira Toriyama의 만화 『드래곤 볼 완전판』 제2권. 만화계의 전설 《드래곤 볼》이 완전판으로 복간되었다. 드래곤 볼을 찾기 위한 손오공과 그 일행의 여행을 담았다. 일본 만화 붐을 일으킨 화제작.", price: 4500, url:"http://www.kyobobook.co.kr/product/detailViewKor.laf?ejkGb=KOR&mallGb=KOR&barcode=9788926363157&orderClick=LET&Kc=")
+//    
+//        let book4 = Book(title: "원펀맨", coverImage: UIImage(named:"man")!)
+//        
+//        
+//        books.append(book1)
+//        books.append(book2)
+//        books.append(book3)
+//        books.append(book4)
+        
+        let filePath = self.getFilePath(withFileName: "books")
+//        print(filePath)
+        
+        // Save to File
+//        NSKeyedArchiver.archiveRootObject(self.books, toFile: filePath)
         
         
-        let book1 = Book(title: "원피스", writer: "Eiichiro Oda", publisher: "대원씨아이", coverImage: UIImage(named:"onepiece")!, descripter: "유쾌한 해적들의 신나는 모험 이야기를 그린 만화『원피스』시리즈 제55권. 본 작품은 대해적 시대, 전설의 해적왕 '골드 로저'가 남긴 '원피스'를 찾기 위해 모험을 떠나는 루피와 친구들의 이야기이다. 의지 하나로 모험을 떠나는 루피와 그에 못지 않은 친구들은, 한번 읽기 시작하면 손을 뗄 수 없게 만드는 캐릭터들이다.", price: 4500, url:"http://www.kyobobook.co.kr/product/detailViewKor.laf?ejkGb=KOR&mallGb=KOR&barcode=9791133442188&orderClick=LET&Kc=")
+        let fileManager = FileManager.default
         
-        
-        let book2 = Book(title: "나루토", writer: "Masashi Kishimoto", publisher: "대원씨아이", coverImage: UIImage(named:"naruto")!, descripter: "닌자를 소재로 한 만화 『나루토』 제11권. '세 번째 시험' 본선을 앞두고 수수께끼의 에로 선인과 수업을 시작한 나루토! 한편 바로 그 시각, 가아라에 승부를 도전한 도스는 눈 깜짝할 사이에 무참히 당하고 만다. 그리고 이를 방관하는 카부토와 모래 마을 상급 닌자 바키! 누구도 상상 못했던 가공할 밀약이 바로 지금 밝혀진다!", price: 4500, url:"http://www.kyobobook.co.kr/product/detailViewKor.laf?ejkGb=KOR&mallGb=KOR&barcode=9788925285061&orderClick=LET&Kc=")
-    
-        let book3 = Book(title: "드래곤볼", writer: "Akira Toriyama", publisher: "서울문화사", coverImage: UIImage(named:"dragonball")!, descripter: "Akira Toriyama의 만화 『드래곤 볼 완전판』 제2권. 만화계의 전설 《드래곤 볼》이 완전판으로 복간되었다. 드래곤 볼을 찾기 위한 손오공과 그 일행의 여행을 담았다. 일본 만화 붐을 일으킨 화제작.", price: 4500, url:"http://www.kyobobook.co.kr/product/detailViewKor.laf?ejkGb=KOR&mallGb=KOR&barcode=9788926363157&orderClick=LET&Kc=")
-    
-        let book4 = Book(title: "원펀맨", coverImage: UIImage(named:"man")!)
-        
-        
-        books.append(book1)
-        books.append(book2)
-        books.append(book3)
-        books.append(book4)
-        
-        
+        if fileManager.fileExists(atPath: filePath) {
+            if let book = NSKeyedUnarchiver.unarchiveObject(withFile: filePath) as? [Book]{
+            
+                self.books.append(contentsOf: book)
+            }
+        }
     }
 
     
