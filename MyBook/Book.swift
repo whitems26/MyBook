@@ -12,15 +12,23 @@ import UIKit
 class Book {
     
     var title : String
-    var writer : String
-    var publisher : String
-    var coverImage : UIImage
-    var descripter : String
-    var price : Int
-    var url:String
+    var writer : String?
+    var publisher : String?
+    var coverImage : UIImage?
+    var descripter : String?
+    var price : Int?
+    var url:String?
     
-    init(title:String, writer:String, publisher:String, coverImage:UIImage,
-         descripter:String, price:Int, url:String) {
+    
+    convenience init(title:String, coverImage:UIImage? ) {
+        
+        self.init(title: title, writer: nil, publisher: nil, coverImage: coverImage, descripter: nil, price: nil, url: nil)
+//        self.title = title
+//        self.coverImage = coverImage
+    }
+    
+    init(title:String, writer:String?, publisher:String?, coverImage:UIImage?,
+         descripter:String?, price:Int?, url:String?) {
         self.title = title
         self.writer = writer
         self.publisher = publisher
@@ -29,6 +37,7 @@ class Book {
         self.price = price
         self.url = url
     }
+    
     
     
     

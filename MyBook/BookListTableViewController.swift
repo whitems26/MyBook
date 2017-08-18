@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BookListTableViewController: UITableViewController {
+class BookListTableViewController: UITableViewController, AddBookDelegate {
 
 //    var books:[String] = ["Arsenal", "Tottenham", "Manchester United", "Chelsea", "Liverpool"]
     var books:[Book] = []
@@ -32,9 +32,14 @@ class BookListTableViewController: UITableViewController {
     
         let book3 = Book(title: "드래곤볼", writer: "Akira Toriyama", publisher: "서울문화사", coverImage: UIImage(named:"dragonball")!, descripter: "Akira Toriyama의 만화 『드래곤 볼 완전판』 제2권. 만화계의 전설 《드래곤 볼》이 완전판으로 복간되었다. 드래곤 볼을 찾기 위한 손오공과 그 일행의 여행을 담았다. 일본 만화 붐을 일으킨 화제작.", price: 4500, url:"http://www.kyobobook.co.kr/product/detailViewKor.laf?ejkGb=KOR&mallGb=KOR&barcode=9788926363157&orderClick=LET&Kc=")
     
+        let book4 = Book(title: "원펀맨", coverImage: UIImage(named:"man")!)
+        
+        
         books.append(book1)
         books.append(book2)
         books.append(book3)
+        books.append(book4)
+        
         
     }
 
@@ -71,13 +76,23 @@ class BookListTableViewController: UITableViewController {
             numFormatter.numberStyle = NumberFormatter.Style.decimal
             
             let price = book.price
-            let priceStr = numFormatter.string(from: NSNumber(integerLiteral: price))
             
+//            var priceStr : String?
+            
+            if let tempP = price {
+                let priceStr = numFormatter.string(from: NSNumber(integerLiteral: tempP))
+           
+                if let str = priceStr {
+                    bookCell.bookPriceLabel.text = str
+                    
+                }
+            }
             
             
             bookCell.bookTitleLabel.text =  book.title
             bookCell.bookWriterLabel.text = book.writer
-            bookCell.bookPriceLabel.text = priceStr
+            
+            
             
             bookCell.bookImageView.image = book.coverImage
             
@@ -139,27 +154,41 @@ class BookListTableViewController: UITableViewController {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         
-        let cell = sender as?UITableViewCell
-        
-        
-        let vc = segue.destination as? BookDetailViewController
-        
-        guard let selectedCell = cell, let detailVC = vc else {
-            return
+        if segue.identifier == "addBookSegue" {
+            
+            if let addVC =  segue.destination as? AddBookViewController{
+                addVC.delegate = self
+            }
         }
-        
-        
-        if let idx = self.tableView.indexPath(for: selectedCell) {
-            detailVC.book = self.books[idx.row]
-        }
-        
-//        if let selCell = cell {
-//            let cellIdx = self.tableView.indexPath(for: selCell)
-//            print(cellIdx?.row)
-//        }
+        else if segue.identifier == "detailBookSegue"{
+            
+            let cell = sender as?UITableViewCell
+            
+            
+            let vc = segue.destination as? BookDetailViewController
+            
+            guard let selectedCell = cell, let detailVC = vc else {
+                return
+            }
+            
+            
+            if let idx = self.tableView.indexPath(for: selectedCell) {
+                detailVC.book = self.books[idx.row]
+            }
+            
+            //        if let selCell = cell {
+            //            let cellIdx = self.tableView.indexPath(for: selCell)
+            //            print(cellIdx?.row)
+            //        }
 
+        }
         
         
+    }
+    
+    func sendNewBook(book:Book) {
+        self.books.append(book)
+        self.tableView.reloadData()
     }
  
 
